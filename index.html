@@ -6,6 +6,78 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class="search">
+        <h2>Search for a City:</h2>
+        <input type="text" placeholder="San Diego" id="searchBar">
+        <button id="searchBtn">Search</button>
+        <ul class="cities" id="cities">
+            <li>Atlanta</li>
+            <li>Denver</li>
+            <li>Seattle</li>
+            <li>San Francisco</li>
+            <li>Orlando</li>
+            <li>New York</li>
+            <li>Chicago</li>
+            <li>Austin</li>
+        </ul>
+    </div>
+    <div class="today">
+        <h2 class="current-city" id="currentCity"></h2>
+        <p id="temp"></p>
+        <p id="wind"></p>
+        <p id="humidity"></p>
+    </div>
+    <div class="forecast">
+        <h3>5-Day Forecast:</h3>
+        <div class="days" id="day1">
+            <h4 class="date"></h4>
+            <p class="emoji"></p>
+            <ul>
+                <li id="temp1"></li>
+                <li id="wind1"></li>
+                <li id="humidity1"></li>
+            </ul>
+        </div>
+        <div class="days" id="day2">
+            <h4 class="date"></h4>
+            <p class="emoji"></p>
+            <ul>
+                <li id="temp2"></li>
+                <li id="wind2"></li>
+                <li id="humidity2"></li>
+            </ul>
+        </div>
+        <div class="days" id="day3">
+            <h4 class="date"></h4>
+            <p class="emoji"></p>
+            <ul>
+                <li id="temp3"></li>
+                <li id="wind3"></li>
+                <li id="humidity3"></li>
+            </ul>
+        </div>
+        <div class="days" id="day4">
+            <h4 class="date"></h4>
+            <p class="emoji"></p>
+            <ul>
+                <li id="temp4"></li>
+                <li id="wind4"></li>
+                <li id="humidity4"></li>
+            </ul>
+        </div>
+        <div class="days" id="day5">
+            <h4 class="date"></h4>
+            <p class="emoji"></p>
+            <ul>
+                <li id="temp5"></li>
+                <li id="wind5"></li>
+                <li id="humidity5"></li>
+            </ul>
+        </div>
+    </div>
     <script src="assets/script.js"></script>
 </body>
 </html>
