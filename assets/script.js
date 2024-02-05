@@ -7,16 +7,20 @@
 
 let searchBar = document.querySelector("#searchBar");
 let currentCity = document.querySelector("#currentCity");
-let thisCity = "Atlanta";
+let cityName = "Atlanta";
+let lat = 33.7489924 ;
+let lon = -84.3902644;
 
 function setDates() {
-    currentCity.textContent = thisCity + " (" + dayjs().format("M/D/YYYY") + ")";
+    currentCity.textContent = cityName + " (" + dayjs().format("M/D/YYYY") + ")";
     for(i = 0; i < 5; i++) {
         document.querySelector("#day" + [i + 1]).textContent = dayjs().add([i + 1], "day").format("M/D/YYYY");
     }
 }
 
 setDates();
+
+
 
 // Convert entered city name to coords
 function getCoords() {
@@ -26,18 +30,16 @@ function getCoords() {
         return response.json();
     })
     .then(function (data) {
-        localStorage.setItem("name", data[0].name);
-        localStorage.setItem("lat", data[0].lat);
-        localStorage.setItem("lon", data[0].lon);
+        cityName = data[0].name;
+        lat = data[0].lat;
+        lon = data[0].lon;
+        getWeather();
     })
+
 }
 
 function getWeather() {
-
-    let lat = localStorage.getItem("lat");
-    let lon = localStorage.getItem("lon");
-    let name = localStorage.getItem("name");
-    let weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=37827bf3895ac3606010a555012bb2a8"
+    let weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=37827bf3895ac3606010a555012bb2a8";
 
     fetch(weatherURL)
     .then(function (response) {
@@ -51,5 +53,4 @@ function getWeather() {
 let searchBtn = document.querySelector("#searchBtn");
 searchBtn.addEventListener("click", function() {
     getCoords();
-    getWeather();
 });
