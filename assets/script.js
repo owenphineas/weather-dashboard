@@ -26,6 +26,24 @@ function getCoords() {
         return response.json();
     })
     .then(function (data) {
+        localStorage.setItem("name", data[0].name);
+        localStorage.setItem("lat", data[0].lat);
+        localStorage.setItem("lon", data[0].lon);
+    })
+}
+
+function getWeather() {
+
+    let lat = localStorage.getItem("lat");
+    let lon = localStorage.getItem("lon");
+    let name = localStorage.getItem("name");
+    let weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=37827bf3895ac3606010a555012bb2a8"
+
+    fetch(weatherURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
         console.log(data);
     })
 }
@@ -33,4 +51,5 @@ function getCoords() {
 let searchBtn = document.querySelector("#searchBtn");
 searchBtn.addEventListener("click", function() {
     getCoords();
+    getWeather();
 });
