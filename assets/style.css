@@ -16,7 +16,6 @@ h1 {
 div {
     display:inline-block;
     margin: 10px;
-    border: 2px solid red;
 }
 
 .search {
@@ -50,6 +49,10 @@ button {
 .cities {
     margin-top: 10px;
     border-top: solid 2px rgb(173, 173, 173);
+}
+
+.today {
+    border: solid 2px rgb(173, 173, 173);
 }
 
 .today p {
