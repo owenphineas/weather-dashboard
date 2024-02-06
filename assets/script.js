@@ -18,6 +18,8 @@ function setDates() {
     }
 }
 
+
+
 setDates();
 
 
@@ -69,6 +71,25 @@ function getWeather() {
     
     
 }
+
+// Sets the default city to Atlanta when the page is loaded
+function setDefaultCity() {
+    searchBar.value = "Atlanta";
+    getCoords();
+}
+setDefaultCity();
+
+// Displays weather data for a city when its button is clicked
+function cityButtons() {
+    let cities = document.querySelector("#cities");
+    for(i = 0; i < 8; i++) {
+        cities.children[i].addEventListener("click", function() {
+            searchBar.value = this.textContent;
+            getCoords();
+        }); 
+    }
+}
+cityButtons();
 
 let searchBtn = document.querySelector("#searchBtn");
 searchBtn.addEventListener("click", function() {
