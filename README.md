@@ -6,6 +6,10 @@ This is a webpage that allows the user to search for a city and see the current 
 ## Usage
 The dashboard can be used by either typing a city into the search bar and clicking the 'search' button, or clicking one of the preset city buttons. The page will then display the city name, an icon representing current weather conditions, as well as the temperature in fahrenheit, the wind in MPH, and the humidity in percentage. In the boxes below, it also displays the temperature, wind, and humidity for that city for each of the next five days. When the page is first loaded, it will display the current weather for Atlanta.
 
+The page can be accessed at https://owenphineas.github.io/weather-dashboard/
+
+![Screenshot](<assets/Screenshot 2024-02-06 172114.png>)
+
 ## Installation
 N/A
 
