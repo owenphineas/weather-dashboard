@@ -14,7 +14,7 @@ let lon = -84.3902644;
 function setDates() {
     currentCity.textContent = cityName + " (" + dayjs().format("M/D/YYYY") + ")";
     for(i = 0; i < 5; i++) {
-        document.querySelector("#day" + [i + 1]).textContent = dayjs().add([i + 1], "day").format("M/D/YYYY");
+        document.querySelector("#date" + [i + 1]).textContent = dayjs().add([i + 1], "day").format("M/D/YYYY");
     }
 }
 
@@ -49,15 +49,29 @@ function getWeather() {
         return response.json();
     })
     .then(function (data) {
-        console.log(data.list[0].main.temp);
+        console.log(data);
+        console.log(data.list[0].weather[0].main)
+        // Displays current weather
         temp.textContent = "Temp: " + data.list[0].main.temp + "°F";
         wind.textContent = "Wind: " + data.list[0].wind.speed + " MPH";
         humidity.textContent = "Humidity: " + data.list[0].main.humidity + "%";
-        currentCity.textContent = data[0].name;
+        // Displays 5 day forecast (weather data is in 3hr increments so 8 increments = 1 day)
+        for(i = 8; i < 33; i+=8) {
+            document.querySelector("#temp" + i / 8).textContent = "Temp: " + data.list[i].main.temp + "°F";
+            document.querySelector("#wind" + i / 8).textContent = "Wind: " + data.list[i].wind.speed + " MPH";
+            document.querySelector("#humidity" + i / 8).textContent = "Humidity: " + data.list[i].main.humidity + "%";
+        }
+        // Manually displays day 5 since list only goes to 39
+        document.querySelector("#temp5").textContent = "Temp: " + data.list[39].main.temp + "°F";
+        document.querySelector("#wind5").textContent = "Wind: " + data.list[39].wind.speed + " MPH";
+        document.querySelector("#humidity5").textContent = "Humidity: " + data.list[39].main.humidity + "%";
     })
+    
+    
 }
 
 let searchBtn = document.querySelector("#searchBtn");
 searchBtn.addEventListener("click", function() {
     getCoords();
+
 });
