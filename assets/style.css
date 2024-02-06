@@ -46,12 +46,21 @@ button {
     margin-top: 10px;
 }
 
-.cities {
+button:hover {
+    cursor: pointer;
+}
+
+.cities li {
     margin-top: 10px;
     border-top: solid 2px rgb(173, 173, 173);
 }
 
+.cities li:hover {
+    cursor:pointer;
+}
+
 .today {
+    margin-top: 40px;
     border: solid 2px rgb(173, 173, 173);
 }
 
@@ -75,4 +84,13 @@ button {
     padding-right: 1rem;
     padding-left: 0.5rem;
 
+}
+
+.days ul {
+    line-height: 2rem;
+}
+
+.date {
+    font-size: 20px;
+    margin-bottom: 20px;
 }

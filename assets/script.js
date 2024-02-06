@@ -57,6 +57,12 @@ function getWeather() {
         temp.textContent = "Temp: " + data.list[0].main.temp + "°F";
         wind.textContent = "Wind: " + data.list[0].wind.speed + " MPH";
         humidity.textContent = "Humidity: " + data.list[0].main.humidity + "%";
+        let emoji = document.querySelector("#emoji");
+        if(data.list[0].weather[0].main == "Clear") {
+            emoji.textContent = "☀"
+        } else if(data.list[0].weather[0].main == "Clouds") {
+            emoji.textContent = "☁"
+        }
         // Displays 5 day forecast (weather data is in 3hr increments so 8 increments = 1 day)
         for(i = 8; i < 33; i+=8) {
             document.querySelector("#temp" + i / 8).textContent = "Temp: " + data.list[i].main.temp + "°F";
