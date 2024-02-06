@@ -30,23 +30,30 @@ function getCoords() {
         return response.json();
     })
     .then(function (data) {
-        cityName = data[0].name;
         lat = data[0].lat;
         lon = data[0].lon;
+        currentCity.textContent = data[0].name;
         getWeather();
     })
 
 }
 
 function getWeather() {
-    let weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=37827bf3895ac3606010a555012bb2a8";
+    let weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=37827bf3895ac3606010a555012bb2a8&units=imperial";
+    let temp = document.querySelector("#temp");
+    let wind = document.querySelector("#wind");
+    let humidity = document.querySelector("#humidity");
 
     fetch(weatherURL)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
+        console.log(data.list[0].main.temp);
+        temp.textContent = "Temp: " + data.list[0].main.temp + "°F";
+        wind.textContent = "Wind: " + data.list[0].wind.speed + " MPH";
+        humidity.textContent = "Humidity: " + data.list[0].main.humidity + "%";
+        currentCity.textContent = data[0].name;
     })
 }
 
